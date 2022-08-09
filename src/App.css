@@ -1,3 +1,13 @@
+/* correct or not correct */
+.correct::after {
+    content: " \02705";
+}
+
+
+.wrong::after {
+  content: " \0274C";
+}
+
 .App {
   text-align: center;
 }
