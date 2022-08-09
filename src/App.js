@@ -5,6 +5,7 @@ function App() {
     <main className="App">
       <h1>Trivia Me</h1>
       <h2>Production branch</h2>
+      <h2>Do you think you know it all?</h2>
     </main>
   );
 }
