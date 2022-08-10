@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import DisplayQuestion from './DisplayQuestion';
 
-function Game({ questionsArray, setQuestionsArray }) {
+function Game({ questionsArray }) {
     const [answerOptions, setAnswerOptions] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     
@@ -38,9 +38,6 @@ function Game({ questionsArray, setQuestionsArray }) {
 
     return (
         <div className="wrapper">
-            <h2>quiz section</h2>
-            {console.log(questionsArray)}
-            {console.log(answerOptions)}
 
             <DisplayQuestion 
                 questionsArray={questionsArray}
@@ -48,6 +45,7 @@ function Game({ questionsArray, setQuestionsArray }) {
                 currentQuestion={currentQuestion}
                 setCurrentQuestion={setCurrentQuestion}
             />
+
         </div>
     )
 }
