@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 
-import DisplayQuestion from './DisplayQuestion';
+import DisplayTrivia from './DisplayTrivia';
 
 function Game({ questionsArray }) {
+    //usestate for answer options array
     const [answerOptions, setAnswerOptions] = useState([]);
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    
+    //usestate to check user's score
+    const [userScore, setUserScore] = useState(0);
+
     //run this when there are changes in our api questions array
     useEffect(() => {
         //shuffled answers array
@@ -39,11 +41,11 @@ function Game({ questionsArray }) {
     return (
         <div className="wrapper">
 
-            <DisplayQuestion 
+            <DisplayTrivia
                 questionsArray={questionsArray}
                 answerOptions={answerOptions}
-                currentQuestion={currentQuestion}
-                setCurrentQuestion={setCurrentQuestion}
+                userScore={userScore}
+                setUserScore={setUserScore}
             />
 
         </div>

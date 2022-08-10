@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-function DisplayQuestion({ questionsArray, answerOptions, currentQuestion, setCurrentQuestion }) {
+function DisplayTrivia({ questionsArray, answerOptions, userScore, setUserScore }) {
+    //usestate to track current question
+    const [currentQuestion, setCurrentQuestion] = useState(0);
     //usestate to check user's selected answer
     const [selectedAnswer, setSelectedAnswer] = useState('');
-    //usestate to check user's score
-    const [userScore, setUserScore] = useState(0);
     //usestate to track button's state
     const [disableButton, setDisableButton] = useState(false);
     //usestate to track error
@@ -26,20 +26,16 @@ function DisplayQuestion({ questionsArray, answerOptions, currentQuestion, setCu
         //selectedAnswer === selectedParam to avoid having classes applied to all buttons
         if (selectedAnswer === selectedParam && selectedAnswer === questionsArray[currentQuestion].correct_answer) {
             return 'correct';
-        } else if (selectedAnswer === selectedParam && selectedAnswer !== questionsArray[currentQuestion].correct_answer){
+        } else if (selectedAnswer === selectedParam && selectedAnswer !== questionsArray[currentQuestion].correct_answer) {
             return 'wrong';
         }
     }
 
     //a function that moves users to the next question
     const handleNext = () => {
-        //check if user selected something
-        if (!selectedAnswer) {
-            //tell user to select an answer if they havent
-            setErrorMsg('Please make a selection.');
-            setTimeout(() => {
-                setErrorMsg();
-            }, 1500);
+        //check if user has no more questions and redirect to results
+        if (currentQuestion > 10) {
+            console.log(`this is the results. your score: ${userScore}`);
         } else if (selectedAnswer) {
             //add one to current question count
             setCurrentQuestion(currentQuestion + 1);
@@ -47,12 +43,27 @@ function DisplayQuestion({ questionsArray, answerOptions, currentQuestion, setCu
             setSelectedAnswer('');
             //enable the buttons again
             setDisableButton(false);
+        } else {
+            //tell user to select an answer if they havent
+            setErrorMsg('Please make a selection.');
+            setTimeout(() => {
+                setErrorMsg();
+            }, 1500)
         }
+
     }
 
     //decode the strings
     const decodeString = (string) => {
-        return string.replaceAll('&quot;', '"').replaceAll('&#039;', "'").replaceAll('&eacute;', 'é');
+        return string
+        .replaceAll('&quot;', '"')
+        .replaceAll('&#039;', "'")
+        .replaceAll('&eacute;', 'é')
+        .replaceAll('&oacute;', 'ó')
+        .replaceAll('&amp;', '&')
+        .replaceAll('&ntilde;', 'ñ')
+        .replaceAll('&prime;', '′')
+        .replaceAll('&Prime;', '″')
     }
 
     return (
@@ -69,22 +80,22 @@ function DisplayQuestion({ questionsArray, answerOptions, currentQuestion, setCu
                     answerOptions[currentQuestion] !== undefined ?
                         (answerOptions[currentQuestion].map((eachAnswer, index) => {
                             return (
-                                <button 
-                                    
+                                <button
+
                                     onClick={() => {
                                         checkAnswer(eachAnswer);
                                         setDisableButton(true);
-                                        }
-                                    }     
+                                    }
+                                    }
                                     //only apply right/wrong class if there's something in selectedAnswer state
-                                    className={selectedAnswer && handleSelected(eachAnswer)}      
-                                    disabled={disableButton}    
-                                    key={index}      
-                                    >                  
-                                {decodeString(eachAnswer)}</button>
+                                    className={selectedAnswer && handleSelected(eachAnswer)}
+                                    disabled={disableButton}
+                                    key={index}
+                                >
+                                    {decodeString(eachAnswer)}</button>
                             )
                         })) : null
-                }   
+                }
             </div>
 
             <nav className="questionNav">
@@ -97,4 +108,4 @@ function DisplayQuestion({ questionsArray, answerOptions, currentQuestion, setCu
 
 }
 
-export default DisplayQuestion;
+export default DisplayTrivia;

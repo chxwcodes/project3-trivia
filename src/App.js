@@ -8,6 +8,7 @@ import Game from './Game';
 function App() {
   //state variables that stores the api data
   const [questionsArray, setQuestionsArray] = useState();
+  
 
   ///////////////////////////////////////////////////
   //call the api when the app mounts
