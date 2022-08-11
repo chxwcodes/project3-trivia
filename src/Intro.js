@@ -19,6 +19,7 @@ function Intro({ fetchQuestions }) {
             <h2>Do you think you know it all?</h2>
 
             <form onSubmit={(e) => {fetchQuestions(e, userCategory, userDifficulty)}}>
+                <label htmlFor="gameGategory">Select Category:</label>
                 <select id="gameCategory" onChange={handleUserCategory} value={userCategory}>
                     <option value="">All Categories</option>
                     <option value="9">General Knowledge</option>
@@ -39,6 +40,7 @@ function Intro({ fetchQuestions }) {
                     <option value="23">History</option>
                 </select>
 
+                <label htmlFor="difficulty">Select Difficulty:</label>
                 <select id="difficulty" onChange={handleUserDifficulty} value={userDifficulty}>
                     <option value="">Any</option>
                     <option value="easy">Easy</option>
