@@ -65,6 +65,7 @@ function DisplayTrivia({ questionsArray, answerOptions }) {
         .replaceAll('&prime;', '′')
         .replaceAll('&Prime;', '″')
         .replaceAll('&euml;', 'ë')
+        .replaceAll('&shy;', '-­');
     }
 
     return (
