@@ -1,23 +1,23 @@
 import { useState } from 'react';
 
-function DisplayTrivia({ questionsArray, answerOptions, userScore, setUserScore }) {
+function DisplayTrivia({ questionsArray, answerOptions }) {
+    //usestate to check user's score
+    const [score, setScore] = useState(0);
     //usestate to track current question
     const [currentQuestion, setCurrentQuestion] = useState(0);
     //usestate to check user's selected answer
-    const [selectedAnswer, setSelectedAnswer] = useState('');
+    const [selectedAnswer, setSelectedAnswer] = useState();
     //usestate to track button's state
     const [disableButton, setDisableButton] = useState(false);
     //usestate to track error
     const [errorMsg, setErrorMsg] = useState('');
 
-    //a function that sets a value in selectedanswers and checks if its correct and updates the score in userScore
-    const checkAnswer = (userAnswer) => {
-        //put a value in userSelect state
-        setSelectedAnswer(userAnswer);
-
-        if (selectedAnswer === questionsArray[currentQuestion].correct_answer) {
+    //a checks if its correct and updates the score in userScore
+    const checkAnswer = (eachAnswer) => {
+        console.log(eachAnswer, questionsArray[currentQuestion].correct_answer)
+        if (eachAnswer === questionsArray[currentQuestion].correct_answer) {
             //if user is correct, add 1 to score
-            setUserScore(userScore + 1);
+            setScore(score + 1);
         }
     }
 
@@ -35,7 +35,7 @@ function DisplayTrivia({ questionsArray, answerOptions, userScore, setUserScore 
     const handleNext = () => {
         //check if user has no more questions and redirect to results
         if (currentQuestion > 10) {
-            console.log(`this is the results. your score: ${userScore}`);
+            console.log(`this is the results. your score: ${score}`);
         } else if (selectedAnswer) {
             //add one to current question count
             setCurrentQuestion(currentQuestion + 1);
@@ -64,6 +64,7 @@ function DisplayTrivia({ questionsArray, answerOptions, userScore, setUserScore 
         .replaceAll('&ntilde;', 'ñ')
         .replaceAll('&prime;', '′')
         .replaceAll('&Prime;', '″')
+        .replaceAll('&euml;', 'ë')
     }
 
     return (
@@ -83,6 +84,7 @@ function DisplayTrivia({ questionsArray, answerOptions, userScore, setUserScore 
                                 <button
 
                                     onClick={() => {
+                                        setSelectedAnswer(eachAnswer);
                                         checkAnswer(eachAnswer);
                                         setDisableButton(true);
                                     }

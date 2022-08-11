@@ -5,8 +5,6 @@ import DisplayTrivia from './DisplayTrivia';
 function Game({ questionsArray }) {
     //usestate for answer options array
     const [answerOptions, setAnswerOptions] = useState([]);
-    //usestate to check user's score
-    const [userScore, setUserScore] = useState(0);
 
     //run this when there are changes in our api questions array
     useEffect(() => {
@@ -44,8 +42,6 @@ function Game({ questionsArray }) {
             <DisplayTrivia
                 questionsArray={questionsArray}
                 answerOptions={answerOptions}
-                userScore={userScore}
-                setUserScore={setUserScore}
             />
 
         </div>
