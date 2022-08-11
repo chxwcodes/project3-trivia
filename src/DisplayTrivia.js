@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-function DisplayTrivia({ questionsArray, answerOptions }) {
+function DisplayTrivia({ questionsArray }) {
     //usestate to check user's score
     const [score, setScore] = useState(0);
     //usestate to track current question
@@ -31,10 +32,13 @@ function DisplayTrivia({ questionsArray, answerOptions }) {
         }
     }
 
+    //function to use react dom's useHistory function
+    let history = useHistory();
+
     //a function that moves users to the next question
     const handleNext = () => {
         //check if user has no more questions and redirect to results
-        if (currentQuestion > 10) {
+        if (currentQuestion > 9) {
             console.log(`this is the results. your score: ${score}`);
         } else if (selectedAnswer) {
             //add one to current question count
@@ -79,8 +83,8 @@ function DisplayTrivia({ questionsArray, answerOptions }) {
 
             <div className="optionPrompts">
                 {
-                    answerOptions[currentQuestion] !== undefined ?
-                        (answerOptions[currentQuestion].map((eachAnswer, index) => {
+                    questionsArray[currentQuestion].shuffledAnswers !== undefined ?
+                        (questionsArray[currentQuestion].shuffledAnswers.map((eachAnswer, index) => {
                             return (
                                 <button
 
