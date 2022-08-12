@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import Results from './Results';
 
-function DisplayTrivia({ questionsArray }) {
+
+function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
     //usestate to check user's score
     const [score, setScore] = useState(0);
     //usestate to track current question
@@ -32,15 +33,10 @@ function DisplayTrivia({ questionsArray }) {
         }
     }
 
-    //function to use react dom's useHistory function
-    let history = useHistory();
-
     //a function that moves users to the next question
     const handleNext = () => {
-        //check if user has no more questions and redirect to results
-        if (currentQuestion > 9) {
-            console.log(`this is the results. your score: ${score}`);
-        } else if (selectedAnswer) {
+        //if theres a value in selected answer
+        if (selectedAnswer) {
             //add one to current question count
             setCurrentQuestion(currentQuestion + 1);
             //reset user's selected answer
@@ -69,47 +65,67 @@ function DisplayTrivia({ questionsArray }) {
         .replaceAll('&prime;', '′')
         .replaceAll('&Prime;', '″')
         .replaceAll('&euml;', 'ë')
-        .replaceAll('&shy;', '-­');
+        .replaceAll('&shy;', '-­')
+        .replaceAll('&uuml;', 'ü')
     }
 
     return (
-        <section className="quizSection">
-            <h3>Question {currentQuestion + 1} of 10</h3>
-            <h4>Category: {questionsArray[currentQuestion].category}</h4>
+        <section className="triviaSection">
+            {
+                currentQuestion <= 9 ? (
+                    <div className="quiz">
+                        <h3>Question #{currentQuestion + 1}</h3>
+                        <h4>{questionsArray[currentQuestion].category}</h4>
 
-            <div className="questionPrompt">
-                <h2>{decodeString(questionsArray[currentQuestion].question)}</h2>
-            </div>
+                        <div className="questionPrompt">
+                            <h2>{decodeString(questionsArray[currentQuestion].question)}</h2>
+                        </div>
 
-            <div className="optionPrompts">
-                {
-                    questionsArray[currentQuestion].shuffledAnswers !== undefined ?
-                        (questionsArray[currentQuestion].shuffledAnswers.map((eachAnswer, index) => {
-                            return (
-                                <button
+                        <div className="optionPrompts">
+                            {
+                                questionsArray[currentQuestion].shuffledAnswers !== undefined ?
+                                    (questionsArray[currentQuestion].shuffledAnswers.map((eachAnswer, index) => {
+                                        return (
+                                            <button
 
-                                    onClick={() => {
-                                        setSelectedAnswer(eachAnswer);
-                                        checkAnswer(eachAnswer);
-                                        setDisableButton(true);
-                                    }
-                                    }
-                                    //only apply right/wrong class if there's something in selectedAnswer state
-                                    className={selectedAnswer && handleSelected(eachAnswer)}
-                                    disabled={disableButton}
-                                    key={index}
-                                >
-                                    {decodeString(eachAnswer)}</button>
-                            )
-                        })) : null
-                }
-            </div>
+                                                onClick={() => {
+                                                    setSelectedAnswer(eachAnswer);
+                                                    checkAnswer(eachAnswer);
+                                                    setDisableButton(true);
+                                                }
+                                                }
+                                                //only apply right/wrong class if there's something in selectedAnswer state
+                                                className={selectedAnswer && handleSelected(eachAnswer)}
+                                                disabled={disableButton}
+                                                key={index}
+                                            >
+                                                {decodeString(eachAnswer)}</button>
+                                        )
+                                    })) : null
+                            }
+                        </div>
 
-            <nav className="questionNav">
-                <button onClick={handleNext}>Next</button>
+                        <nav className="questionNav">
+                            <button onClick={handleNext}>Next</button>
 
-                {errorMsg ? <p>{errorMsg}</p> : null}
-            </nav>
+                            {errorMsg ? <p>{errorMsg}</p> : null}
+                        </nav>
+                    </div>
+                ) : null
+            }
+
+            {
+                currentQuestion >= 10 ? (
+                    <Results 
+                        questionsArray={questionsArray}
+                        userCategory={userCategory}
+                        userDifficulty={userDifficulty}
+                        score={score}
+                    />
+                ) : null    
+            }
+            
+            
         </section>
     )
 
