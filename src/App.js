@@ -5,6 +5,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 import SelectGame from './SelectGame';
+import Results from './Results';
 
 
 function App() {
@@ -74,6 +75,9 @@ function App() {
             questionsArray={questionsArray}
           />
         }/>
+
+        {/* RESULTS */}
+        <Route path='/results' element={ <Results /> }/>
 
         
       </Routes>
