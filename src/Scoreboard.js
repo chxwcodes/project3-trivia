@@ -39,10 +39,12 @@ function Scoreboard() {
     return (
         <main className="scoreboard">
             <div className="wrapper">
-                <Link to='/'>Return to main</Link>
+                
+                <Link to='/'>Return to main</Link>            
 
                 <section className="scoreData">
-                    <h2>Scoreboard</h2>
+                    <h2>Score<span>board</span></h2>
+                    <p>Very smart peeps. Do you see your name?</p>
 
                     <table>
                         <thead>

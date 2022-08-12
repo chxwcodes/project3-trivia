@@ -22,7 +22,8 @@ h1, h2, h3 {
     margin: 0;
 }
 
-h1 {
+h1,
+.scoreboard h2 {
   font-family: 'Fredoka One', cursive;
   font-size: 7rem;
   line-height: 6.5rem;
@@ -30,11 +31,13 @@ h1 {
   color: #a134f6;
 }
 
-h1 span {
+h1 span,
+.scoreboard h2 span {
   color: #fcba43;
 }
 
-h2 {
+h2,
+.scoreboard p {
   font-size: 2rem;
 }
 
@@ -81,7 +84,8 @@ label {
 }
 
 /* HOME PAGE */
-.quizSection .wrapper{
+.quizSection .wrapper,
+.scoreboard .wrapper {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -130,7 +134,8 @@ select {
   font-weight: 400;
 }
 
-.triviaSection h3 {
+.triviaSection h3,
+.results h3 {
   color: #ffd234;
 }
 
@@ -139,7 +144,8 @@ select {
   flex-direction: column;
 }
 
-.question {
+.question,
+.userResults {
   background: white;
   padding: 75px;
   margin: 20px 0;
@@ -177,7 +183,8 @@ select {
   background-color: #0094FF;
 }
 
-.optionPrompts button:disabled {
+.optionPrompts button:disabled,
+.userInfo button:disabled {
   background-color: #A8A8A8;
   color: #5C5C5C;
   cursor: auto;
@@ -217,25 +224,89 @@ select {
 }
 
 /* QUESTION NAV */
-.questionNav {
+.questionNav,
+.resultsNav {
   display: flex;
   justify-content: flex-end;
 }
 
-.questionNav button {
+.questionNav button,
+.returnBtn,
+.scoreboard a {
   padding: 15px 25px;
   font-size: 1.2rem;
   box-shadow: 0px 6px #c59a02;
 }
 
-.questionNav button:hover {
+.questionNav button:hover,
+.returnBtn:hover,
+.scoreboard a:hover {
   filter: brightness(1);
 }
 
-.questionNav button:active {
+.questionNav button:active,
+.returnBtn:active,
+.scoreboard a:active {
   box-shadow: none;
   transform: translateY(6px);
 }
+
+/* RESULTS */
+.userResults p{
+  margin: 0;
+}
+
+.score {
+  font-size: 6.5rem;
+}
+
+.returnBtn,
+.scoreboard a {
+  background-color: #0094FF;
+  box-shadow: 0px 6px #005EA3;
+}
+
+.userInfo {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.userInfo h3 {
+  width: 100%;
+  font-weight: 400;
+}
+
+.userInfo input,
+.userInfo button {
+  font-size: 1.2rem;
+}
+
+.userInfo button {
+  border-radius: 0;
+  font-weight: bold;
+  margin: 0;
+  padding: 15px 30px;
+}
+
+/* SCOREBOARD */
+.scoreboard h2 {
+  text-transform: none;
+}
+
+.scoreboard a {
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+.scoreboard p {
+  margin: 0 0 20px 0;
+}
+
 
 /* BUTTON & LINK STYLING */
 button, a{

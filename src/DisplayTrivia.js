@@ -16,7 +16,6 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
 
     //a checks if its correct and updates the score in userScore
     const checkAnswer = (eachAnswer) => {
-        console.log(eachAnswer, questionsArray[currentQuestion].correct_answer)
         if (eachAnswer === questionsArray[currentQuestion].correct_answer) {
             //if user is correct, add 1 to score
             setScore(score + 1);
@@ -110,7 +109,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                             {errorMsg ? <p className='errorMsg'>&#9888; {errorMsg} &#9888;</p> : null}
 
                             <nav className="questionNav">
-                                <button onClick={handleNext}>Next</button>
+                                <button onClick={handleNext}> Next</button>
                             </nav>
                         </div>
                     ) : null

@@ -48,34 +48,36 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
             <div className="userResults">
                 <p className="score">{score}/10</p>
                 <p className="category">
-                    {userCategory === undefined ? 'All' : questionsArray[0].category}
-                    ({userDifficulty === undefined ? 'Any' : questionsArray[0].difficulty})
+                    {userCategory === undefined ? 'All Categories' : questionsArray[0].category}
+                    ({userDifficulty === undefined ? 'Mixed' : questionsArray[0].difficulty})
                 </p>
-
-                <form className="userInfo" 
-                    onSubmit={(e) => {
-                        handleScoreSubmit(e);
-                        setIsSubmitted(true);
-                    }}
-                >
-                    <h3>If you want to save to the scoreboard, enter your name below.</h3>
-
-                    <label htmlFor="userName" className="sr-only">Your name:</label>
-                    <input 
-                        type="text" 
-                        id="userName" 
-                        placeholder='Anonymous Bee'
-                        onChange={handleUserInput}
-                        value={userName}
-                        disabled={isSubmitted}
-                        required
-                    />
-                    <button disabled={isSubmitted}>Submit</button>
-                </form>
-                
             </div>
 
-            <button onClick={handleReturn}>Return</button>
+            <form className="userInfo" 
+                onSubmit={(e) => {
+                    handleScoreSubmit(e);
+                    setIsSubmitted(true);
+                }}
+            >
+                <h3>If you want to save your results to the scoreboard, enter your name below.</h3>
+
+                <label htmlFor="userName" className="sr-only">Your name:</label>
+                <input 
+                    type="text" 
+                    id="userName" 
+                    placeholder='Anonymous Bee'
+                    onChange={handleUserInput}
+                    value={userName}
+                    disabled={isSubmitted}
+                    required
+                />
+                <button disabled={isSubmitted}>Submit</button>
+            </form>
+                
+            <div className="resultsNav">
+                <button className='returnBtn' onClick={handleReturn}>Return</button>
+            </div>
+            
         </div>
     )
 }
