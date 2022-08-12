@@ -17,12 +17,14 @@ function SelectGame({ fetchQuestions, questionsArray }) {
     }
 
     return (
-        <div className="wrapper">
+        <section className="quizSection">
             {
                 //only display form when theres no questions
-                questionsArray.length === 0 ? (<section className="selectQuiz">
-                        <h1>Trivia Me</h1>
+                questionsArray.length === 0 ? (<div className="wrapper">
+                        <h1>Trivia<span>Me</span></h1>
                         <h2>Do you think you know it all?</h2>
+
+                        <p className='gameDesc'>Test your knowledge and prove that you're a know-it-all in a wide range of categories ranging from computer science to anime. See how you compare with others in our scoreboard.</p>
 
                         <form onSubmit={(e) => { fetchQuestions(e, userCategory, userDifficulty) }}>
 
@@ -31,7 +33,7 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                                 id="gameCategory" 
                                 onChange={handleUserCategory} 
                                 value={userCategory}>
-                                    <option value="">All Categories</option>
+                                    <option value="">All Categories (Mixed)</option>
                                     <option value="9">General Knowledge</option>
                                     <option value="15">Video Games</option>
                                     <option value="16">Board Games</option>
@@ -55,15 +57,17 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                             id="difficulty" 
                             onChange={handleUserDifficulty} 
                             value={userDifficulty}>
-                                    <option value="">Any</option>
+                                    <option value="">Any Difficulty (Mixed)</option>
                                     <option value="easy">Easy</option>
                                     <option value="medium">Medium</option>
                                     <option value="hard">Hard</option>
                             </select>
 
                             <button type="submit">Start Game</button>
+
+                            {questionsArray.length === 0 ? <Link to='/scoreboard'>Scoreboard</Link> : null}
                         </form>
-                    </section>)
+                    </div>)
                     : null
             }
 
@@ -74,13 +78,8 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                     questionsArray={questionsArray}
                 /> : null
             }
-
-            {
-                //hide scoreboard when user is taking the quiz
-                questionsArray.length === 0 ? <Link to='/scoreboard'>Scoreboard</Link> : null
-            }
             
-        </div>
+        </section>
     )
 }
 

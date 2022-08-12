@@ -57,8 +57,8 @@ function Scoreboard() {
 
                         {playersData.map((eachPlayer) => {
                             return (
-                                <tbody>
-                                    <tr key={eachPlayer.key}>
+                                <tbody key={eachPlayer.key}>
+                                    <tr>
                                         <td className="playerName">{eachPlayer.name}</td>
                                         <td className="playerScore">{eachPlayer.score}/10</td>
                                         <td className="playerCat">{eachPlayer.category}</td>

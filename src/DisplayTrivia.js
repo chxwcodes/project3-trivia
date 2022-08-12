@@ -70,62 +70,62 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
     }
 
     return (
-        <section className="triviaSection">
-            {
-                currentQuestion <= 9 ? (
-                    <div className="quiz">
-                        <h3>Question #{currentQuestion + 1}</h3>
-                        <h4>{questionsArray[currentQuestion].category}</h4>
+        <section className="quiz">
+            <div className="wrapper">
+                {
+                    currentQuestion <= 9 ? (
+                        <div className="triviaSection">
+                            <h3>Question {currentQuestion + 1} of 10</h3>
+                            <h2>{questionsArray[currentQuestion].category}</h2>
 
-                        <div className="questionPrompt">
-                            <h2>{decodeString(questionsArray[currentQuestion].question)}</h2>
+                            <div className="questionPrompt">
+                                <p className='question'>{decodeString(questionsArray[currentQuestion].question)}</p>
+                            </div>
+
+                            <div className="optionPrompts">
+                                {
+                                    questionsArray[currentQuestion].shuffledAnswers !== undefined ?
+                                        (questionsArray[currentQuestion].shuffledAnswers.map((eachAnswer, index) => {
+                                            return (
+                                                <button
+
+                                                    onClick={() => {
+                                                        setSelectedAnswer(eachAnswer);
+                                                        checkAnswer(eachAnswer);
+                                                        setDisableButton(true);
+                                                    }
+                                                    }
+                                                    //only apply right/wrong class if there's something in selectedAnswer state
+                                                    className={selectedAnswer && handleSelected(eachAnswer)}
+                                                    disabled={disableButton}
+                                                    key={index}
+                                                >
+                                                    {decodeString(eachAnswer)}</button>
+                                            )
+                                        })) : null
+                                }
+                            </div>
+
+                            <nav className="questionNav">
+                                <button onClick={handleNext}>Next</button>
+
+                                {errorMsg ? <p>{errorMsg}</p> : null}
+                            </nav>
                         </div>
+                    ) : null
+                }
 
-                        <div className="optionPrompts">
-                            {
-                                questionsArray[currentQuestion].shuffledAnswers !== undefined ?
-                                    (questionsArray[currentQuestion].shuffledAnswers.map((eachAnswer, index) => {
-                                        return (
-                                            <button
-
-                                                onClick={() => {
-                                                    setSelectedAnswer(eachAnswer);
-                                                    checkAnswer(eachAnswer);
-                                                    setDisableButton(true);
-                                                }
-                                                }
-                                                //only apply right/wrong class if there's something in selectedAnswer state
-                                                className={selectedAnswer && handleSelected(eachAnswer)}
-                                                disabled={disableButton}
-                                                key={index}
-                                            >
-                                                {decodeString(eachAnswer)}</button>
-                                        )
-                                    })) : null
-                            }
-                        </div>
-
-                        <nav className="questionNav">
-                            <button onClick={handleNext}>Next</button>
-
-                            {errorMsg ? <p>{errorMsg}</p> : null}
-                        </nav>
-                    </div>
-                ) : null
-            }
-
-            {
-                currentQuestion >= 10 ? (
-                    <Results 
-                        questionsArray={questionsArray}
-                        userCategory={userCategory}
-                        userDifficulty={userDifficulty}
-                        score={score}
-                    />
-                ) : null    
-            }
-            
-            
+                {
+                    currentQuestion >= 10 ? (
+                        <Results
+                            questionsArray={questionsArray}
+                            userCategory={userCategory}
+                            userDifficulty={userDifficulty}
+                            score={score}
+                        />
+                    ) : null
+                }
+            </div>   
         </section>
     )
 
