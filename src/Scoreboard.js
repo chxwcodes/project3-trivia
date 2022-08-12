@@ -49,10 +49,10 @@ function Scoreboard() {
                     <table>
                         <thead>
                             <tr>
-                                <th className="nameData">Name</th>
-                                <th className="scoreData">Score</th>
-                                <th className="catData">Category</th>
-                                <th className="diffData">Difficulty</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                                <th>Category</th>
+                                <th>Difficulty</th>
                             </tr>
   
                         </thead>
