@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
 
 import SelectGame from './SelectGame';
-import Results from './Results';
+import Scoreboard from './Scoreboard';
 
 
 function App() {
@@ -70,14 +70,18 @@ function App() {
       <Routes>
         {/* HOME/INDEX */}
         <Route path='/' element={
-          <SelectGame
+          (<SelectGame
             fetchQuestions={fetchQuestions}
             questionsArray={questionsArray}
           />
+          
+          )
+
+
         }/>
 
         {/* RESULTS */}
-        <Route path='/results' element={ <Results /> }/>
+        <Route path='/scoreboard' element={ <Scoreboard /> }/>
 
         
       </Routes>

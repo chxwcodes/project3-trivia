@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import DisplayTrivia from './DisplayTrivia';
 
 function SelectGame({ fetchQuestions, questionsArray }) {
@@ -72,6 +74,8 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                     questionsArray={questionsArray}
                 /> : null
             }
+
+            <Link to='/scoreboard'>Scoreboard</Link>
             
         </div>
     )
