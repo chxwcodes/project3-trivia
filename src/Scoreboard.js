@@ -20,6 +20,7 @@ function Scoreboard() {
             //filtered data from the response
             const data = response.val();
 
+            //loop thru each firebase player object and get their properties and push it in the temp state
             for (let firebaseKey in data){
                 tempState.push({
                     key: firebaseKey,
@@ -30,7 +31,7 @@ function Scoreboard() {
                 })
             }
 
-            //update score state with firebase data
+            //update score state with firebase data with temp state array
             setPlayersData(tempState);
 
         })
@@ -38,9 +39,7 @@ function Scoreboard() {
 
     return (
         <main className="scoreboard">
-            <div className="wrapper">
-                
-                <Link to='/'>Return to main</Link>            
+            <div className="wrapper">                                        
 
                 <section className="scoreData">
                     <h2>Score<span>board</span></h2>
@@ -70,6 +69,8 @@ function Scoreboard() {
                             )
                         })}
                     </table>
+
+                    <Link to='/'>Return to main</Link>  
 
                 </section>
             </div>

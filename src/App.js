@@ -7,7 +7,6 @@ import './App.css';
 import SelectGame from './SelectGame';
 import Scoreboard from './Scoreboard';
 
-
 function App() {
   //state variables that stores the api data
   const [questionsArray, setQuestionsArray] = useState([]);
@@ -60,12 +59,11 @@ function App() {
     })
   }
 
-
   ///////////////////////////////////////////////////
 
   return (
 
-    <main className="App">
+    <div className="App">
 
       <Routes>
         {/* HOME/INDEX */}
@@ -75,7 +73,7 @@ function App() {
         <Route path='/scoreboard' element={ <Scoreboard /> }/>
       </Routes>
 
-    </main>
+    </div>
 
   );
 }

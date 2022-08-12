@@ -65,6 +65,7 @@ function SelectGame({ fetchQuestions, questionsArray }) {
 
                             <button type="submit">Start Game</button>
 
+                            {/* hide scoreboard link when user is playing game */}
                             {questionsArray.length === 0 ? <Link to='/scoreboard'>Scoreboard</Link> : null}
                         </form>
                     </div>)
@@ -76,6 +77,8 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                 questionsArray.length > 0 ? 
                 <DisplayTrivia 
                     questionsArray={questionsArray}
+                    userCategory={userCategory}
+                    userDifficulty={userDifficulty}
                 /> : null
             }
             

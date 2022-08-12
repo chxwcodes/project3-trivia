@@ -21,10 +21,15 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
         let readableUserCategory = userCategory;
         if (userCategory === undefined) {
             readableUserCategory = 'All Categories';
+        } else {
+            readableUserCategory = questionsArray[0].category;
         }
+
         let readableUserDifficulty = userDifficulty;
         if (userDifficulty === undefined) {
             readableUserDifficulty = 'Any';
+        } else {
+            readableUserDifficulty = questionsArray[0].difficulty;
         }
 
         //reference to db
@@ -49,7 +54,7 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
                 <p className="score">{score}/10</p>
                 <p className="category">
                     {userCategory === undefined ? 'All Categories' : questionsArray[0].category}
-                    ({userDifficulty === undefined ? 'Mixed' : questionsArray[0].difficulty})
+                    ({userDifficulty === undefined ? 'mixed' : questionsArray[0].difficulty})
                 </p>
             </div>
 
