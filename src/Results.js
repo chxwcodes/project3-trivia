@@ -1,8 +1,43 @@
-
+import firebase from './firebase';
+import { getDatabase, ref, push } from 'firebase/database';
+import { useState } from 'react';
 
 function Results({ questionsArray, userCategory, userDifficulty, score }) {
+    const [userName, setUserName] = useState('');
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     const handleReturn = () => {
         window.location.reload(false);
+    }
+
+    const handleUserInput = (e) => {
+        setUserName(e.target.value);
+    }
+
+    const handleScoreSubmit = (e) => {
+        e.preventDefault();
+
+        //give a name to any category and all difficulty since they're empty strings
+        let readableUserCategory = userCategory;
+        if (userCategory === undefined) {
+            readableUserCategory = 'All Categories';
+        }
+        let readableUserDifficulty = userDifficulty;
+        if (userDifficulty === undefined) {
+            readableUserDifficulty = 'Any';
+        }
+
+        //reference to db
+        const database = getDatabase(firebase);
+        const dbRef = ref(database);
+
+        //push user's score to db
+        push(dbRef, {
+            'username': userName,
+            'score': score,
+            'category': readableUserCategory,
+            'difficulty': readableUserDifficulty
+        });
     }
 
     return(
@@ -16,6 +51,28 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
                     {userCategory === undefined ? 'All' : questionsArray[0].category}
                     ({userDifficulty === undefined ? 'Any' : questionsArray[0].difficulty})
                 </p>
+
+                <form className="userInfo" 
+                    onSubmit={(e) => {
+                        handleScoreSubmit(e);
+                        setIsSubmitted(true);
+                    }}
+                >
+                    <h3>If you want to save to the scoreboard, enter your name below.</h3>
+
+                    <label htmlFor="userName" className="sr-only">Your name:</label>
+                    <input 
+                        type="text" 
+                        id="userName" 
+                        placeholder='Anonymous Bee'
+                        onChange={handleUserInput}
+                        value={userName}
+                        disabled={isSubmitted}
+                        required
+                    />
+                    <button disabled={isSubmitted}>Submit</button>
+                </form>
+                
             </div>
 
             <button onClick={handleReturn}>Return</button>
