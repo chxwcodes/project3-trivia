@@ -120,6 +120,10 @@ select {
   flex-direction: column;
 }
 
+.triviaSection {
+  width: 100%;
+}
+
 .triviaSection h2 {
   font-size: 1.5rem;
   color: white;
@@ -152,11 +156,13 @@ select {
 }
 
 .optionPrompts button {
-  flex-basis: 49%;
-  padding: 25px 0;
+  width: 49%;
+  padding: 25px;
   text-transform: none;
   font-size: 1.5rem;
   font-weight: 400;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .optionPrompts button:first-child {
@@ -196,10 +202,39 @@ select {
   content: " \0274C";
 }
 
+/* ERROR MSG */
+.errorMsg {
+  padding: 50px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  font-size: 1.5rem;
+  width: 320px;
+  transform: translate(-50%, -50%);
+  color: #ffd234;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
 /* QUESTION NAV */
+.questionNav {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .questionNav button {
-  padding: 15px;
+  padding: 15px 25px;
   font-size: 1.2rem;
+  box-shadow: 0px 6px #c59a02;
+}
+
+.questionNav button:hover {
+  filter: brightness(1);
+}
+
+.questionNav button:active {
+  box-shadow: none;
+  transform: translateY(6px);
 }
 
 /* BUTTON & LINK STYLING */

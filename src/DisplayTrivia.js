@@ -67,6 +67,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
         .replaceAll('&euml;', 'ë')
         .replaceAll('&shy;', '-­')
         .replaceAll('&uuml;', 'ü')
+        .replaceAll('&ograve;', 'ò')
     }
 
     return (
@@ -106,10 +107,10 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                                 }
                             </div>
 
+                            {errorMsg ? <p className='errorMsg'>&#9888; {errorMsg} &#9888;</p> : null}
+
                             <nav className="questionNav">
                                 <button onClick={handleNext}>Next</button>
-
-                                {errorMsg ? <p>{errorMsg}</p> : null}
                             </nav>
                         </div>
                     ) : null
