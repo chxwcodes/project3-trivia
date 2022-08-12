@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 import './App.css';
 
@@ -69,28 +69,11 @@ function App() {
 
       <Routes>
         {/* HOME/INDEX */}
-        <Route path='/' element={
-          (<SelectGame
-            fetchQuestions={fetchQuestions}
-            questionsArray={questionsArray}
-          />
-          
-          )
-
-
-        }/>
+        <Route path='/' element={ <SelectGame fetchQuestions={fetchQuestions} questionsArray={questionsArray} /> }/>
 
         {/* RESULTS */}
         <Route path='/scoreboard' element={ <Scoreboard /> }/>
-
-        
       </Routes>
-    
-
-
-
-
-      
 
     </main>
 

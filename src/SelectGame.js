@@ -75,7 +75,10 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                 /> : null
             }
 
-            <Link to='/scoreboard'>Scoreboard</Link>
+            {
+                //hide scoreboard when user is taking the quiz
+                questionsArray.length === 0 ? <Link to='/scoreboard'>Scoreboard</Link> : null
+            }
             
         </div>
     )
