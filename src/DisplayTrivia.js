@@ -103,7 +103,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                                     questionsArray[currentQuestion].shuffledAnswers !== undefined ?
                                         (questionsArray[currentQuestion].shuffledAnswers.map((eachAnswer, index) => {
                                             return (
-                                                <button
+                                                <button 
 
                                                     onClick={() => {
                                                         setSelectedAnswer(eachAnswer);

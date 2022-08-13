@@ -72,6 +72,12 @@ label {
 
 
 /* GENERAL STYLING */
+*:focus {
+  outline: none !important;
+  border-color: blue !important;
+  box-shadow: inset 0px 0px 0px 3px blue !important;
+}
+
 .App {
   font-family: 'Balsamiq Sans', cursive;
   text-align: center;
