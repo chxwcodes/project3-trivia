@@ -24,11 +24,14 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
 
     //a function that returns a style class
     const handleSelected = (selectedParam) => {
-        //selectedAnswer === selectedParam to avoid having classes applied to all buttons
+        //additional logic of selectedAnswer === selectedParam to avoid having classes applied to all the buttons
+        //if user's selection = api correct answer, return class correct, if user selection != api correct answer, return class wrong. Then removed additional logic so app will tell user which one is the correct answer if user were to choose the wrong answer.
         if (selectedAnswer === selectedParam && selectedAnswer === questionsArray[currentQuestion].correct_answer) {
             return 'correct';
         } else if (selectedAnswer === selectedParam && selectedAnswer !== questionsArray[currentQuestion].correct_answer) {
             return 'wrong';
+        } else if (selectedParam === questionsArray[currentQuestion].correct_answer) {
+            return 'correct';
         }
     }
 
