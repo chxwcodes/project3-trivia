@@ -43,6 +43,7 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                                     <option value="10">Books</option>
                                     <option value="11">Movies & Film</option>
                                     <option value="12">Music</option>
+                                    <option value="13">Musicals & Theatres</option>
                                     <option value="14">TV Shows</option>
                                     <option value="17">Science & Nature</option>
                                     <option value="18">Computer Science</option>
@@ -51,6 +52,9 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                                     <option value="21">Sports</option>
                                     <option value="22">Geography</option>
                                     <option value="23">History</option>
+                                    <option value="24">Politics</option>
+                                    <option value="25">Art & Design</option>
+                                    <option value="27">Animals</option>
                                     <option value="28">Vehicles</option>
                             </select>
 

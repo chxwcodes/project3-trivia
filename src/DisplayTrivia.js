@@ -55,7 +55,6 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
 
     }
 
-    //decode the strings
     const decodeString = (string) => {
         return string
         .replaceAll('&quot;', '"')
@@ -72,6 +71,18 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
         .replaceAll('&ograve;', 'ò')
         .replaceAll('&pi;', 'π')
         .replaceAll('&micro;', 'µ')
+        .replaceAll('&excl;', '!')
+        .replaceAll('&percnt', '%')
+        .replaceAll('&plus;', '+')
+        .replaceAll('&ring;', '°')
+        .replaceAll('&#247;', '÷')
+        .replaceAll('&times;', '×')
+        .replaceAll('&lt;', '>')
+        .replaceAll('&gt;', '<')
+        .replaceAll('&Sigma;', 'Σ')
+        .replaceAll('&Omega;', 'Ω')
+        .replaceAll('&ohm;', 'Ω')
+        .replaceAll('&equals;', '=')
     }
 
     return (
@@ -81,7 +92,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                     currentQuestion <= 9 ? (
                         <div className="triviaSection">
                             <h3>Question {currentQuestion + 1} of 10</h3>
-                            <h2>{questionsArray[currentQuestion].category}</h2>
+                            <h2>{`${questionsArray[currentQuestion].category} (${questionsArray[currentQuestion].difficulty})`}</h2>
 
                             <div className="questionPrompt">
                                 <p className='question'>{decodeString(questionsArray[currentQuestion].question)}</p>

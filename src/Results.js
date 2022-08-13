@@ -53,8 +53,8 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
             <div className="userResults">
                 <p className="score">{score}/10</p>
                 <p className="category">
-                    {userCategory == '' ? 'All Categories' : questionsArray[0].category}
-                    ({userDifficulty == '' ? 'mixed' : questionsArray[0].difficulty})
+                    {userCategory === '' ? 'All Categories' : questionsArray[0].category}
+                    ({userDifficulty === '' ? 'mixed' : questionsArray[0].difficulty})
                 </p>
             </div>
 
