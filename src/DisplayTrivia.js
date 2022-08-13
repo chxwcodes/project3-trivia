@@ -71,6 +71,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
         .replaceAll('&uuml;', 'ü')
         .replaceAll('&ograve;', 'ò')
         .replaceAll('&pi;', 'π')
+        .replaceAll('&micro;', 'µ')
     }
 
     return (

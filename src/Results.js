@@ -19,14 +19,14 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
 
         //give a name to any category and all difficulty since they're empty strings
         let readableUserCategory = userCategory;
-        if (userCategory === undefined) {
+        if (userCategory === '') {
             readableUserCategory = 'All Categories';
         } else {
             readableUserCategory = questionsArray[0].category;
         }
 
         let readableUserDifficulty = userDifficulty;
-        if (userDifficulty === undefined) {
+        if (userDifficulty === '') {
             readableUserDifficulty = 'Any';
         } else {
             readableUserDifficulty = questionsArray[0].difficulty;
@@ -53,8 +53,8 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
             <div className="userResults">
                 <p className="score">{score}/10</p>
                 <p className="category">
-                    {userCategory === undefined ? 'All Categories' : questionsArray[0].category}
-                    ({userDifficulty === undefined ? 'mixed' : questionsArray[0].difficulty})
+                    {userCategory == '' ? 'All Categories' : questionsArray[0].category}
+                    ({userDifficulty == '' ? 'mixed' : questionsArray[0].difficulty})
                 </p>
             </div>
 
