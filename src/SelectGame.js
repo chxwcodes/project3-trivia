@@ -47,9 +47,11 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                                     <option value="17">Science & Nature</option>
                                     <option value="18">Computer Science</option>
                                     <option value="19">Mathematics</option>
+                                    <option value="20">Mythology</option>
                                     <option value="21">Sports</option>
                                     <option value="22">Geography</option>
                                     <option value="23">History</option>
+                                    <option value="28">Vehicles</option>
                             </select>
 
                             <label htmlFor="difficulty">Select Difficulty:</label>
