@@ -107,20 +107,18 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                                     questionsArray[currentQuestion].shuffledAnswers !== undefined ?
                                         (questionsArray[currentQuestion].shuffledAnswers.map((eachAnswer, index) => {
                                             return (
-                                                <button 
-
-                                                    onClick={() => {
+                                                <button onClick={() => {
                                                         setSelectedAnswer(eachAnswer);
                                                         checkAnswer(eachAnswer);
                                                         setDisableButton(true);
+                                                        }
                                                     }
-                                                    }
-                                                    //only apply right/wrong class if there's something in selectedAnswer state
-                                                    className={selectedAnswer && handleSelected(eachAnswer)}
-                                                    disabled={disableButton}
-                                                    key={index}
+                                                //only apply right/wrong class if there's something in selectedAnswer state
+                                                className={selectedAnswer && handleSelected(eachAnswer)}
+                                                disabled={disableButton}
+                                                key={index}
                                                 >
-                                                    {decodeString(eachAnswer)}</button>
+                                                {decodeString(eachAnswer)}</button>
                                             )
                                         })) : null
                                 }

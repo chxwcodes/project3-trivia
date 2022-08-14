@@ -42,7 +42,7 @@ function Scoreboard() {
     }, [])
 
     return (
-        <main className="scoreboard">
+        <section className="scoreboard">
             <div className="wrapper">                                        
 
                 <section className="scoreData">
@@ -80,7 +80,7 @@ function Scoreboard() {
 
                 </section>
             </div>
-        </main>
+        </section>
     )
 
     

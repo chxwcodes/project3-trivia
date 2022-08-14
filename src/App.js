@@ -63,7 +63,7 @@ function App() {
 
   return (
 
-    <div className="App">
+    <main className="App">
 
       <Routes>
         {/* HOME/INDEX */}
@@ -73,7 +73,7 @@ function App() {
         <Route path='/scoreboard' element={ <Scoreboard /> }/>
       </Routes>
 
-    </div>
+    </main>
 
   );
 }

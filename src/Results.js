@@ -58,7 +58,7 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
     }
 
     return(
-        <div className="results">
+        <section className="results">
 
             <h3>You scored:</h3>
 
@@ -96,7 +96,7 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
                 <button className='returnBtn' onClick={handleReturn}>Return</button>
             </div>
             
-        </div>
+        </section>
     )
 }
 
