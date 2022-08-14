@@ -45,30 +45,32 @@ function Scoreboard() {
                     <h2>Score<span>board</span></h2>
                     <p>Very smart peeps. Do you see your name?</p>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Score</th>
-                                <th>Category</th>
-                                <th>Difficulty</th>
-                            </tr>
-  
-                        </thead>
+                    <div className="scoreTable">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                    <th>Category</th>
+                                    <th>Difficulty</th>
+                                </tr>
 
-                        {playersData.map((eachPlayer) => {
-                            return (
-                                <tbody key={eachPlayer.key}>
-                                    <tr>
-                                        <td className="playerName">{eachPlayer.name}</td>
-                                        <td className="playerScore">{eachPlayer.score}/10</td>
-                                        <td className="playerCat">{eachPlayer.category}</td>
-                                        <td className="playerDiff">{eachPlayer.difficulty}</td>
-                                    </tr>
-                                </tbody>
-                            )
-                        })}
-                    </table>
+                            </thead>
+
+                            {playersData.map((eachPlayer) => {
+                                return (
+                                    <tbody key={eachPlayer.key}>
+                                        <tr>
+                                            <td className="playerName">{eachPlayer.name}</td>
+                                            <td className="playerScore">{eachPlayer.score}/10</td>
+                                            <td className="playerCat">{eachPlayer.category}</td>
+                                            <td className="playerDiff">{eachPlayer.difficulty}</td>
+                                        </tr>
+                                    </tbody>
+                                )
+                            })}
+                        </table>
+                    </div>
 
                     <Link to='/'>Return to main</Link>  
 

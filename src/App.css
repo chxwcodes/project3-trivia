@@ -22,11 +22,10 @@ h1, h2, h3 {
     margin: 0;
 }
 
-h1,
-.scoreboard h2 {
+h1, .scoreboard h2 {
   font-family: 'Fredoka One', cursive;
-  font-size: 7rem;
-  line-height: 6.5rem;
+  font-size: clamp(2.5rem, 1.8571rem + 3.2143vw, 7rem);
+  line-height: clamp(1.5rem, 0.7857rem + 3.5714vw, 6.5rem);
   text-transform: uppercase;
   color: #a134f6;
 }
@@ -36,13 +35,12 @@ h1 span,
   color: #fcba43;
 }
 
-h2,
-.scoreboard p {
-  font-size: 2rem;
+h2, .scoreboard p {
+  font-size: clamp(1rem, 0.8571rem + 0.7143vw, 2rem);
 }
 
 h3 {
-  font-size: 1.7rem;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.7rem);
 }
 
 a {
@@ -142,7 +140,7 @@ select {
 }
 
 .triviaSection h2 {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 0.9286rem + 0.3571vw, 1.5rem);
   color: white;
   font-weight: 400;
 }
@@ -165,7 +163,7 @@ select {
   display: block;
   border-radius: 10px;
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 1.0857rem + 0.5714vw, 2rem);
 }
 
 .optionPrompts {
@@ -178,7 +176,7 @@ select {
   width: 49%;
   padding: 25px;
   text-transform: none;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 0.9286rem + 0.3571vw, 1.5rem);
   font-weight: 400;
   white-space: normal;
   word-wrap: break-word;
@@ -247,7 +245,7 @@ select {
 .returnBtn,
 .scoreboard a {
   padding: 15px 25px;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 0.9714rem + 0.1429vw, 1.2rem);
   box-shadow: 0px 6px #c59a02;
 }
 
@@ -270,7 +268,7 @@ select {
 }
 
 .score {
-  font-size: 6.5rem;
+  font-size: clamp(2rem, 1.3571rem + 3.2143vw, 6.5rem);
 }
 
 .returnBtn,
@@ -296,7 +294,7 @@ select {
 
 .userInfo input,
 .userInfo button {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 0.9714rem + 0.1429vw, 1.2rem);
 }
 
 .userInfo button {
@@ -324,9 +322,20 @@ select {
   margin: 0 0 20px 0;
 }
 
+.scoreTable {
+  overflow: auto;
+  height: 50vh;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 th, td {
