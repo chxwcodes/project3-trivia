@@ -378,7 +378,7 @@ button:hover, a:hover {
 }
 
 /* FOOTER STYLING */
-.copyright {
+footer {
   width: 100%;
   color: #4a4a4a;
   font-size: 0.8rem;
@@ -389,11 +389,11 @@ button:hover, a:hover {
   z-index: -10;
 }
 
-p.copyright {
+footer p {
   margin: 0;
 }
 
-.copyright a {
+footer a {
   background-color: transparent;
   margin: 0;
   padding: 0;
