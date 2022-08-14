@@ -1,7 +1,7 @@
 function Footer() {
     return (
-        <footer>
-            <p>Made by Chow at Juno College 2022</p>
-        </footer>
+        <p className="copyright">Made by <a href="https://chxw.dev/">Chxw</a> ♥ Juno College 2022</p>
     )
 }
+
+export default Footer;

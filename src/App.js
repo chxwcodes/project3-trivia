@@ -6,6 +6,7 @@ import './App.css';
 
 import SelectGame from './SelectGame';
 import Scoreboard from './Scoreboard';
+import Footer from './Footer';
 
 function App() {
   //state variables that stores the api data
@@ -72,6 +73,8 @@ function App() {
         {/* RESULTS */}
         <Route path='/scoreboard' element={ <Scoreboard /> }/>
       </Routes>
+
+      <Footer />
 
     </main>
 

@@ -62,13 +62,6 @@ label {
   font-weight: 700;
 }
 
-.copyright {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-}
-
-
 /* GENERAL STYLING */
 :focus {
   outline: 2px solid orange !important;
@@ -382,6 +375,28 @@ button, a{
 button:hover, a:hover {
   cursor: pointer;
   filter: brightness(1.5);
+}
+
+/* FOOTER STYLING */
+.copyright {
+  width: 100%;
+  color: #4a4a4a;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -10;
+}
+
+p.copyright {
+  margin: 0;
+}
+
+.copyright a {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 /* MEDIA QUERIES */
