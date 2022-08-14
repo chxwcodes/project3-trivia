@@ -58,25 +58,26 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
                 </p>
             </div>
 
+            <h3>If you want to save your results to the scoreboard, enter your name below.</h3>
+
             <form className="userInfo" 
                 onSubmit={(e) => {
                     handleScoreSubmit(e);
                     setIsSubmitted(true);
                 }}
             >
-                <h3>If you want to save your results to the scoreboard, enter your name below.</h3>
 
                 <label htmlFor="userName" className="sr-only">Your name:</label>
                 <input 
                     type="text" 
                     id="userName" 
-                    placeholder='Anonymous Bee'
+                    placeholder='Your Name'
                     onChange={handleUserInput}
                     value={userName}
                     disabled={isSubmitted}
                     required
                 />
-                <button disabled={isSubmitted}>Submit</button>
+                <button disabled={isSubmitted}>💾</button>
             </form>
                 
             <div className="resultsNav">

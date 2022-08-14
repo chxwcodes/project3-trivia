@@ -25,7 +25,7 @@ h1, h2, h3 {
 h1, .scoreboard h2 {
   font-family: 'Fredoka One', cursive;
   font-size: clamp(2.5rem, 1.8571rem + 3.2143vw, 7rem);
-  line-height: clamp(1.5rem, 0.7857rem + 3.5714vw, 6.5rem);
+  line-height: clamp(2.5rem, 0.7857rem + 3.5714vw, 6.5rem);
   text-transform: uppercase;
   color: #a134f6;
 }
@@ -70,10 +70,8 @@ label {
 
 
 /* GENERAL STYLING */
-*:focus {
-  outline: none !important;
-  border-color: blue !important;
-  box-shadow: inset 0px 0px 0px 3px blue !important;
+:focus {
+  outline: 2px solid blue !important;
 }
 
 .App {
@@ -282,14 +280,22 @@ select {
   margin: auto;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  margin-bottom: 30px;
 }
 
-.userInfo h3 {
+.userInfo input {
+  width: 80%;
+}
+
+.userInfo button {
+  width: 20%;
+}
+
+.results h3 {
   width: 100%;
   font-weight: 400;
+  margin-bottom: 30px;
 }
 
 .userInfo input,
@@ -301,7 +307,7 @@ select {
   border-radius: 0;
   font-weight: bold;
   margin: 0;
-  padding: 15px 30px;
+  padding: 0 5px;
 }
 
 /* SCOREBOARD */
@@ -324,7 +330,7 @@ select {
 
 .scoreTable {
   overflow: auto;
-  height: 50vh;
+  height: 55vh;
 }
 
 table {
@@ -339,7 +345,7 @@ thead th {
 }
 
 th, td {
-  padding: 10px 0;
+  padding: 10px;
 }
 
 th:first-child {
@@ -387,7 +393,63 @@ button:hover, a:hover {
   }
 
   form {
-    width: 50%;
+    width: 60%;
+  }
+}
+
+@media (max-width: 800px) {
+  /* INTRO SECTION */
+  .gameDesc .userInfo {
+    width: 100%;
+  }
+
+  form {
+    width: 70%;
+  }
+
+  /* QUESTION SECTION */
+  .optionPrompts button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  /* INTRO SECTION */
+  .wrapper {
+    padding: 30px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  /* QUESTION SECTION */
+  .questionNav .resultsNav {
+    justify-content: center;
+  }
+
+  .question,
+  .userResults {
+    padding: 20px;
+  }
+
+  /* SCOREBOARD SECTION */
+  .scoreboard h2 {
+    font-size: 12vw;
+  }
+
+  .scoreboard .wrapper {
+    padding: 20px;
+  }
+}
+
+/* HEIGHT MEDIA QUERIES */
+@media (max-height: 1000px) {
+  .wrapper {
+    position: static;
+    transform: translate(0%, 0%);
+    max-height: none;
+    margin: 30px auto;
   }
 }
 

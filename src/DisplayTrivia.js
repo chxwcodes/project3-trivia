@@ -83,6 +83,10 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
         .replaceAll('&Omega;', 'Ω')
         .replaceAll('&ohm;', 'Ω')
         .replaceAll('&equals;', '=')
+        .replaceAll('&rsquo;', '’')
+        .replaceAll('&ldquo;', '“')
+        .replaceAll('&rdquo;', '”')
+        .replaceAll('&hellip;', '…')
     }
 
     return (
