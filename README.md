@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Trivia Me! : A React.js Solo coding project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created on August 2022 for Juno College's project 3. [View live here.](https://trivia-main.netlify.app/)
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+This project is powered by [Open Trivia API](https://opentdb.com/api_config.php), which is then combined with React.js and a little bit of Firebase. Players can have the default params (which is mixed categories and mixed difficulty), or choose from a wide range of difficulties. When players are done with the quiz, a results page will show the summary and players can choose to save their scores to the [community scoreboard](https://trivia-main.netlify.app/scoreboard). 
 
-### `npm start`
+Note: As the players makes their submissions, the timestamp is taken down to the millesecond and pushed to Firebase as well. This is then used to sort the player data in descending order on the scoreboard so it shows up at the top. This is done to improve the user experience so users do not have to scroll down.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tools
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* React
+* Javascript
+* Firebase
+* REST API
+* XML
+* CSS3
 
-### `npm test`
+## What did I learn?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Using useState effectively and how to pass API data effectively through different components through the use of props. I also got a little familar with hooking my react app with Firebase in terms of pushing player data.
 
-### `npm run build`
+## What did I struggle with?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I had a hard time getting my app to work with React Router. My stretch goal was to make my app a multipage website. But due to the way I coded the logic of my app, it was proven a little difficult because my components relied on the API data state.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## So what do I want to add/improve on?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Making it multipage with React Route someday
+* Sort by date, score, category button in scoreboard section
+* Adding sounds (correct ding, wrong buzz)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Other works
+See [My Portfolio](https://chxw.dev/) for other projects and shenanigans 💃🥳⌨

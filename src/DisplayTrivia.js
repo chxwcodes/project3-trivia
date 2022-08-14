@@ -87,6 +87,8 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
         .replaceAll('&ldquo;', '“')
         .replaceAll('&rdquo;', '”')
         .replaceAll('&hellip;', '…')
+        .replaceAll('&reg;', '®')
+        .replaceAll('&trade;', '™')
     }
 
     return (
