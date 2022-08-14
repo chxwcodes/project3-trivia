@@ -27,13 +27,17 @@ function Scoreboard() {
                     name: data[firebaseKey].username,
                     score: data[firebaseKey].score,
                     category: data[firebaseKey].category,
-                    difficulty: data[firebaseKey].difficulty
+                    difficulty: data[firebaseKey].difficulty,
+                    timestamp: parseInt(data[firebaseKey].timestamp)
                 })
             }
 
+            tempState.sort((a,b) => {
+                return b.timestamp - a.timestamp;
+            })
+
             //update score state with firebase data with temp state array
             setPlayersData(tempState);
-
         })
     }, [])
 
@@ -43,7 +47,7 @@ function Scoreboard() {
 
                 <section className="scoreData">
                     <h2>Score<span>board</span></h2>
-                    <p>Very smart peeps. Do you see your name?</p>
+                    <p>Results are shown by most recent to oldest.</p>
 
                     <div className="scoreTable">
                         <table>

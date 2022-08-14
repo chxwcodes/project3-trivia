@@ -27,10 +27,21 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
 
         let readableUserDifficulty = userDifficulty;
         if (userDifficulty === '') {
-            readableUserDifficulty = 'Any';
+            readableUserDifficulty = 'mixed';
         } else {
             readableUserDifficulty = questionsArray[0].difficulty;
         }
+
+        //get timestamp
+        const userDate = new Date();
+
+        const timestamp = userDate.getFullYear().toString()
+            + userDate.getMonth().toString().padStart(2, '0')
+            + userDate.getDate().toString().padStart(2, '0')
+            + userDate.getHours().toString().padStart(2, '0')
+            + userDate.getMinutes().toString().padStart(2, '0')
+            + userDate.getSeconds().toString().padStart(2, '0')
+            + userDate.getMilliseconds().toString().padStart(4, '0')
 
         //reference to db
         const database = getDatabase(firebase);
@@ -41,7 +52,8 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
             'username': userName,
             'score': score,
             'category': readableUserCategory,
-            'difficulty': readableUserDifficulty
+            'difficulty': readableUserDifficulty,
+            'timestamp': timestamp
         });
     }
 
