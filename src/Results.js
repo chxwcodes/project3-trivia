@@ -87,6 +87,7 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
                     onChange={handleUserInput}
                     value={userName}
                     disabled={isSubmitted}
+                    maxLength={30}
                     required
                 />
                 <button disabled={isSubmitted}>💾</button>
