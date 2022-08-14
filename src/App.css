@@ -71,7 +71,7 @@ label {
 
 /* GENERAL STYLING */
 :focus {
-  outline: 2px solid blue !important;
+  outline: 2px solid orange !important;
 }
 
 .App {
