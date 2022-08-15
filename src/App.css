@@ -171,6 +171,7 @@ select {
   font-weight: 400;
   white-space: normal;
   word-wrap: break-word;
+  margin: 0 0 20px 0;
 }
 
 .optionPrompts button:first-child {
