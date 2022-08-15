@@ -235,7 +235,9 @@ select {
 
 .questionNav button,
 .returnBtn,
-.scoreboard a {
+.scoreboard a,
+.resultsNav a
+ {
   padding: 15px 25px;
   font-size: clamp(1rem, 0.9714rem + 0.1429vw, 1.2rem);
   box-shadow: 0px 6px #c59a02;
@@ -243,13 +245,15 @@ select {
 
 .questionNav button:hover,
 .returnBtn:hover,
-.scoreboard a:hover {
+.scoreboard a:hover,
+.resultsNav a:hover {
   filter: brightness(1);
 }
 
 .questionNav button:active,
 .returnBtn:active,
-.scoreboard a:active {
+.scoreboard a:active,
+.resultsNav a:active {
   box-shadow: none;
   transform: translateY(6px);
 }
@@ -302,6 +306,11 @@ select {
   font-weight: bold;
   margin: 0;
   padding: 0 5px;
+}
+
+.resultsNav {
+  justify-content: center;
+  gap: 20px;
 }
 
 /* SCOREBOARD */

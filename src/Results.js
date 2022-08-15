@@ -1,6 +1,7 @@
 import firebase from './firebase';
 import { getDatabase, ref, push } from 'firebase/database';
 import { useState } from 'react';
+import {Link} from 'react-router-dom';
 
 function Results({ questionsArray, userCategory, userDifficulty, score }) {
     const [userName, setUserName] = useState('');
@@ -92,8 +93,11 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
                 />
                 <button disabled={isSubmitted}>💾</button>
             </form>
+
+            
                 
             <div className="resultsNav">
+                {isSubmitted ? <Link to='/scoreboard'>Go to Scoreboard</Link> : null}
                 <button className='returnBtn' onClick={handleReturn}>Return</button>
             </div>
             
