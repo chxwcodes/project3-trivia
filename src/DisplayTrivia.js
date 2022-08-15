@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import he from 'he';
 import Results from './Results';
 
 
@@ -55,45 +56,6 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
 
     }
 
-    const decodeString = (string) => {
-        return string
-        .replaceAll('&quot;', '"')
-        .replaceAll('&#039;', "'")
-        .replaceAll('&eacute;', 'é')
-        .replaceAll('&oacute;', 'ó')
-        .replaceAll('&amp;', '&')
-        .replaceAll('&ntilde;', 'ñ')
-        .replaceAll('&prime;', '′')
-        .replaceAll('&Prime;', '″')
-        .replaceAll('&euml;', 'ë')
-        .replaceAll('&shy;', '-­')
-        .replaceAll('&uuml;', 'ü')
-        .replaceAll('&ograve;', 'ò')
-        .replaceAll('&pi;', 'π')
-        .replaceAll('&micro;', 'µ')
-        .replaceAll('&excl;', '!')
-        .replaceAll('&percnt', '%')
-        .replaceAll('&plus;', '+')
-        .replaceAll('&ring;', '°')
-        .replaceAll('&#247;', '÷')
-        .replaceAll('&times;', '×')
-        .replaceAll('&lt;', '>')
-        .replaceAll('&gt;', '<')
-        .replaceAll('&Sigma;', 'Σ')
-        .replaceAll('&Omega;', 'Ω')
-        .replaceAll('&ohm;', 'Ω')
-        .replaceAll('&equals;', '=')
-        .replaceAll('&rsquo;', '’')
-        .replaceAll('&ldquo;', '“')
-        .replaceAll('&rdquo;', '”')
-        .replaceAll('&hellip;', '…')
-        .replaceAll('&reg;', '®')
-        .replaceAll('&trade;', '™')
-        .replaceAll('&aacute;', 'á')
-        .replaceAll('&iacute;', 'í')
-        .replaceAll('&aring;', 'å')
-    }
-
     return (
         <section className="quiz">
             <div className="wrapper">
@@ -104,7 +66,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                             <h2>{`${questionsArray[currentQuestion].category} (${questionsArray[currentQuestion].difficulty})`}</h2>
 
                             <div className="questionPrompt">
-                                <p className='question'>{decodeString(questionsArray[currentQuestion].question)}</p>
+                                <p className='question'>{he.decode(questionsArray[currentQuestion].question)}</p>
                             </div>
 
                             <div className="optionPrompts">
@@ -123,7 +85,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                                                 disabled={disableButton}
                                                 key={index}
                                                 >
-                                                {decodeString(eachAnswer)}</button>
+                                                {he.decode(eachAnswer)}</button>
                                             )
                                         })) : null
                                 }

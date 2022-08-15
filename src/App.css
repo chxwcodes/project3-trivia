@@ -63,7 +63,7 @@ label {
 }
 
 /* GENERAL STYLING */
-:focus {
+*:focus {
   outline: 2px solid orange !important;
 }
 
@@ -388,6 +388,7 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   z-index: -10;
+  margin-bottom: 5px;
 }
 
 footer p {
@@ -398,7 +399,9 @@ footer a {
   background-color: transparent;
   margin: 0;
   padding: 0;
+  border-radius: 0px;
 }
+
 
 /* MEDIA QUERIES */
 @media (max-width: 1000px){
@@ -465,7 +468,7 @@ footer a {
     position: static;
     transform: translate(0%, 0%);
     max-height: none;
-    margin: 30px auto;
+    margin: 30px auto 10px;
   }
 }
 
