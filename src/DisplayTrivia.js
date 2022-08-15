@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import he from 'he';
 import Results from './Results';
-
+import ErrorMsg from './ErrorMsg';
 
 function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
     //usestate to check user's score
@@ -48,7 +48,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
             setDisableButton(false);
         } else {
             //tell user to select an answer if they havent
-            setErrorMsg('Please make a selection.');
+            setErrorMsg(`⚠ Please make a selection. ⚠`);
             setTimeout(() => {
                 setErrorMsg();
             }, 1500)
@@ -91,7 +91,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                                 }
                             </div>
 
-                            {errorMsg ? <p className='errorMsg'>&#9888; {errorMsg} &#9888;</p> : null}
+                            {errorMsg ? <ErrorMsg errorMsg={errorMsg} /> : null}
 
                             <nav className="questionNav">
                                 <button onClick={handleNext}> Next</button>
@@ -107,6 +107,8 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                             userCategory={userCategory}
                             userDifficulty={userDifficulty}
                             score={score}
+                            errorMsg={errorMsg}
+                            setErrorMsg={setErrorMsg}
                         />
                     ) : null
                 }

@@ -1,9 +1,10 @@
 import firebase from './firebase';
 import { getDatabase, ref, push } from 'firebase/database';
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
+import ErrorMsg from './ErrorMsg';
 
-function Results({ questionsArray, userCategory, userDifficulty, score }) {
+
+function Results({ questionsArray, userCategory, userDifficulty, score, errorMsg, setErrorMsg }) {
     const [userName, setUserName] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -56,6 +57,12 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
             'difficulty': readableUserDifficulty,
             'timestamp': timestamp
         });
+
+        //tell user they've submitted
+        setErrorMsg(`Your score has been recorded! 😊`);
+        setTimeout(() => {
+            setErrorMsg();
+        }, 1500)
     }
 
     return(
@@ -84,7 +91,7 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
                 <input 
                     type="text" 
                     id="userName" 
-                    placeholder='Your Name'
+                    placeholder='Anonymous Bee'
                     onChange={handleUserInput}
                     value={userName}
                     disabled={isSubmitted}
@@ -93,13 +100,12 @@ function Results({ questionsArray, userCategory, userDifficulty, score }) {
                 />
                 <button disabled={isSubmitted}>💾</button>
             </form>
-
-            
-                
+    
             <div className="resultsNav">
-                {isSubmitted ? <Link to='/scoreboard'>Go to Scoreboard</Link> : null}
-                <button className='returnBtn' onClick={handleReturn}>Return</button>
+                <button className='returnBtn' onClick={handleReturn}>Return to home</button>
             </div>
+
+            {errorMsg ? <ErrorMsg errorMsg={errorMsg} /> : null}
             
         </section>
     )
