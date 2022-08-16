@@ -279,7 +279,7 @@ select {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .userInfo input {
@@ -439,6 +439,15 @@ footer a {
   .optionPrompts button {
     width: 100%;
   }
+
+  /* RESULTS SECTION */
+  .userInfo input {
+    width: 70%;
+  }
+
+  .userInfo button {
+    width: 30%;
+  }
 }
 
 @media (max-width: 500px) {
@@ -459,6 +468,25 @@ footer a {
   .question,
   .userResults {
     padding: 20px;
+  }
+
+  /* RESULTS SECTION */
+  .resultsNav {
+    justify-content: center;
+  }
+  
+  .userInfo {
+    flex-wrap: wrap;
+  }
+
+  .userInfo input,
+  .userInfo button {
+    width: 100%;
+  }
+
+  .userInfo button {
+    padding: 15px;
+    margin-top: 10px;
   }
 
   /* SCOREBOARD SECTION */

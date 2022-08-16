@@ -8,6 +8,7 @@ function Results({ questionsArray, setQuestionsArray, userCategory, userDifficul
     const [userName, setUserName] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
 
+    //reset api array if user doesnt submit their match to firebase
     const handleReturn = () => {
         setQuestionsArray([]);
     }
@@ -98,7 +99,7 @@ function Results({ questionsArray, setQuestionsArray, userCategory, userDifficul
                     maxLength={30}
                     required
                 />
-                <button disabled={isSubmitted}>💾</button>
+                <button disabled={isSubmitted}>Submit</button>
             </form>
     
             <div className="resultsNav">
