@@ -448,6 +448,16 @@ footer a {
   .userInfo button {
     width: 30%;
   }
+
+  .resultsNav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .resultsNav * {
+    margin: 0;
+    width: 80%;
+  }
 }
 
 @media (max-width: 500px) {
@@ -474,7 +484,7 @@ footer a {
   .resultsNav {
     justify-content: center;
   }
-  
+
   .userInfo {
     flex-wrap: wrap;
   }

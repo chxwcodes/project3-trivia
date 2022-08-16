@@ -1,6 +1,7 @@
 import firebase from './firebase';
 import { getDatabase, ref, push } from 'firebase/database';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ErrorMsg from './ErrorMsg';
 
 
@@ -103,6 +104,7 @@ function Results({ questionsArray, setQuestionsArray, userCategory, userDifficul
             </form>
     
             <div className="resultsNav">
+                {isSubmitted ? <Link to='/scoreboard' onClick={handleReturn}>Scoreboard</Link> : null}
                 <button className='returnBtn' onClick={handleReturn}>Back to game</button>
             </div>
 
