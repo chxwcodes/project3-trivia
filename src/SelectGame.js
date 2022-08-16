@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import DisplayTrivia from './DisplayTrivia';
 
-function SelectGame({ fetchQuestions, questionsArray }) {
+function SelectGame({ fetchQuestions, questionsArray, setQuestionsArray }) {
     //usestate that stores user's game param selections
     const [userCategory, setUserCategory] = useState('');
     const [userDifficulty, setUserDifficulty] = useState('');
@@ -85,6 +85,7 @@ function SelectGame({ fetchQuestions, questionsArray }) {
                     questionsArray={questionsArray}
                     userCategory={userCategory}
                     userDifficulty={userDifficulty}
+                    setQuestionsArray={setQuestionsArray}
                 /> : null
             }
             

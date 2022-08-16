@@ -68,7 +68,7 @@ function App() {
 
       <Routes>
         {/* HOME/INDEX */}
-        <Route path='/' element={ <SelectGame fetchQuestions={fetchQuestions} questionsArray={questionsArray} /> }/>
+        <Route path='/' element={<SelectGame fetchQuestions={fetchQuestions} questionsArray={questionsArray} setQuestionsArray={setQuestionsArray} /> }/>
 
         {/* RESULTS */}
         <Route path='/scoreboard' element={ <Scoreboard /> }/>

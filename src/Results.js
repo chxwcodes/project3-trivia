@@ -4,12 +4,12 @@ import { useState } from 'react';
 import ErrorMsg from './ErrorMsg';
 
 
-function Results({ questionsArray, userCategory, userDifficulty, score, errorMsg, setErrorMsg }) {
+function Results({ questionsArray, setQuestionsArray, userCategory, userDifficulty, score, errorMsg, setErrorMsg }) {
     const [userName, setUserName] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleReturn = () => {
-        window.location.reload(false);
+        setQuestionsArray([]);
     }
 
     const handleUserInput = (e) => {
@@ -102,7 +102,7 @@ function Results({ questionsArray, userCategory, userDifficulty, score, errorMsg
             </form>
     
             <div className="resultsNav">
-                <button className='returnBtn' onClick={handleReturn}>Return to home</button>
+                <button className='returnBtn' onClick={handleReturn}>Back to game</button>
             </div>
 
             {errorMsg ? <ErrorMsg errorMsg={errorMsg} /> : null}

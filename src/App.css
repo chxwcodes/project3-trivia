@@ -309,7 +309,7 @@ select {
 }
 
 .resultsNav {
-  justify-content: center;
+  justify-content: end;
   gap: 20px;
 }
 

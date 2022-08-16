@@ -1,19 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import he from 'he';
 import Results from './Results';
 import ErrorMsg from './ErrorMsg';
 
-function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
+function DisplayTrivia({ questionsArray, setQuestionsArray, userCategory, userDifficulty }) {
     //usestate to check user's score
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState();
     //usestate to track current question
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [currentQuestion, setCurrentQuestion] = useState();
     //usestate to check user's selected answer
     const [selectedAnswer, setSelectedAnswer] = useState();
     //usestate to track button's state
     const [disableButton, setDisableButton] = useState(false);
     //usestate to track error
     const [errorMsg, setErrorMsg] = useState('');
+
+    //reset some values when DisplayTrivia first mounts 
+    useEffect(() => {
+        setCurrentQuestion(0);
+        setScore(0);
+    }, [])
 
     //a checks if its correct and updates the score in userScore
     const checkAnswer = (eachAnswer) => {
@@ -104,6 +110,7 @@ function DisplayTrivia({ questionsArray, userCategory, userDifficulty }) {
                     currentQuestion >= 10 ? (
                         <Results
                             questionsArray={questionsArray}
+                            setQuestionsArray={setQuestionsArray}
                             userCategory={userCategory}
                             userDifficulty={userDifficulty}
                             score={score}
