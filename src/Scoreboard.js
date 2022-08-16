@@ -41,10 +41,6 @@ function Scoreboard() {
         })
     }, [])
 
-    const handleReturn = () => {
-        window.location.reload(false);
-    }
-
     return (
         <section className="scoreboard">
             <div className="wrapper">                                        
