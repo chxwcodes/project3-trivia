@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 
 function Scoreboard() {
     const [playersData, setPlayersData] = useState([]);
+    const [userDropSel, setUserDropSel] = useState('recent');
 
     useEffect(() => {
         //variable for our db
@@ -32,14 +33,34 @@ function Scoreboard() {
                 })
             }
 
-            tempState.sort((a,b) => {
-                return b.timestamp - a.timestamp;
-            })
+            //sort based on user's dropdown sel
+            if (userDropSel === 'recent') {
+                tempState.sort((a, b) => {
+                    return b.timestamp - a.timestamp;
+                })
+            } else if (userDropSel === 'highScore') {
+                tempState.sort((a, b) => {
+                    return b.score - a.score;
+                })
+            } else if (userDropSel === 'alphaName') {
+                tempState.sort((a, b) => {
+                    return a.name.localeCompare(b.name, { ignorePunctuation: true });
+                })
+            } else if (userDropSel === 'oldest') {
+                tempState.sort((a, b) => {
+                    return a.timestamp - b.timestamp;
+                })
+            }
+
 
             //update score state with firebase data with temp state array
             setPlayersData(tempState);
         })
-    }, [])
+    }, [userDropSel])
+
+    const handleUserDropSel = (e) => {
+        setUserDropSel(e.target.value);
+    }
 
     return (
         <section className="scoreboard">
@@ -47,7 +68,18 @@ function Scoreboard() {
 
                 <section className="scoreData">
                     <h2>Score<span>board</span></h2>
-                    <p>Results are shown by most recent to oldest.</p>
+                    <p>Smart peeps here. Do you see your name?</p>
+
+                    <label htmlFor="scoreSort" className='sr-only'>Sort scoreboard</label>
+                    <select id="scoreSort"
+                    onChange={handleUserDropSel}
+                    value={userDropSel}
+                    >
+                        <option value="recent">Most Recent</option>
+                        <option value="highScore">Highest Score</option>
+                        <option value="alphaName">Name: Alphabetical</option>
+                        <option value="oldest">Oldest to Newest</option>
+                    </select>
 
                     <div className="scoreTable">
                         <table>

@@ -318,6 +318,10 @@ select {
   width: 100%;
 }
 
+.scoreData select {
+  width: 30%;
+}
+
 .scoreboard h2 {
   text-transform: none;
 }
@@ -458,6 +462,11 @@ footer a {
     margin: 0;
     width: 80%;
   }
+
+  /* SCOREBOARD SECTION */
+  .scoreData select {
+    width: 60%;
+  }
 }
 
 @media (max-width: 500px) {
@@ -502,6 +511,10 @@ footer a {
   /* SCOREBOARD SECTION */
   .scoreboard h2 {
     font-size: 12vw;
+  }
+
+  .scoreboard select {
+    width: 80%;
   }
 
   .scoreboard .wrapper {
