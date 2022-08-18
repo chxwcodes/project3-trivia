@@ -86,6 +86,8 @@ function SelectGame({ fetchQuestions, questionsArray, setQuestionsArray }) {
                     userCategory={userCategory}
                     userDifficulty={userDifficulty}
                     setQuestionsArray={setQuestionsArray}
+                    setUserCategory={setUserCategory}
+                    setUserDifficulty={setUserDifficulty}
                 /> : null
             }
             

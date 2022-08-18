@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import he from 'he';
 import Results from './Results';
-import ErrorMsg from './ErrorMsg';
 
-function DisplayTrivia({ questionsArray, setQuestionsArray, userCategory, userDifficulty }) {
+function DisplayTrivia({ questionsArray, setQuestionsArray, userCategory, userDifficulty, setUserCategory, setUserDifficulty }) {
     //usestate to check user's score
     const [score, setScore] = useState();
     //usestate to track current question
@@ -97,7 +96,8 @@ function DisplayTrivia({ questionsArray, setQuestionsArray, userCategory, userDi
                                 }
                             </div>
 
-                            {errorMsg ? <ErrorMsg errorMsg={errorMsg} /> : null}
+                            {/* notification for errors */}
+                            {errorMsg ? <p className="errorMsg">{errorMsg}</p> : null}
 
                             <nav className="questionNav">
                                 <button onClick={handleNext}> Next</button>
@@ -114,8 +114,8 @@ function DisplayTrivia({ questionsArray, setQuestionsArray, userCategory, userDi
                             userCategory={userCategory}
                             userDifficulty={userDifficulty}
                             score={score}
-                            errorMsg={errorMsg}
-                            setErrorMsg={setErrorMsg}
+                            setUserCategory={setUserCategory}
+                            setUserDifficulty={setUserDifficulty}
                         />
                     ) : null
                 }
