@@ -2,16 +2,17 @@ import firebase from './firebase';
 import { getDatabase, ref, push } from 'firebase/database';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ErrorMsg from './ErrorMsg';
 
-
-function Results({ questionsArray, setQuestionsArray, userCategory, userDifficulty, score, errorMsg, setErrorMsg }) {
+function Results({ questionsArray, setQuestionsArray, userCategory, userDifficulty, score, setUserCategory, setUserDifficulty}) {
     const [userName, setUserName] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submitNotif, setSubmitNotif] = useState('');
 
-    //reset api array if user doesnt submit their match to firebase
+    //reset api array and quiz dropdown inputs for next game
     const handleReturn = () => {
         setQuestionsArray([]);
+        setUserCategory('');
+        setUserDifficulty('');
     }
 
     const handleUserInput = (e) => {
@@ -61,9 +62,9 @@ function Results({ questionsArray, setQuestionsArray, userCategory, userDifficul
         });
 
         //tell user they've submitted
-        setErrorMsg(`Your score has been recorded! 😊`);
+        setSubmitNotif(`Your score has been recorded! 😊`);
         setTimeout(() => {
-            setErrorMsg();
+            setSubmitNotif();
         }, 1500)
     }
 
@@ -108,7 +109,8 @@ function Results({ questionsArray, setQuestionsArray, userCategory, userDifficul
                 <button className='returnBtn' onClick={handleReturn}>Back to game</button>
             </div>
 
-            {errorMsg ? <ErrorMsg errorMsg={errorMsg} /> : null}
+            {/* popup notif telling users theyve submitted */}
+            {submitNotif ? <p className="errorMsg">{submitNotif}</p> : null}
             
         </section>
     )
