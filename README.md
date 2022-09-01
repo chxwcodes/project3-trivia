@@ -12,7 +12,7 @@ Note: As the players makes their submissions, the timestamp is taken down to the
 
 * Axios API calls to obtain question data from Open Trivia API
 * Custom categories and difficulty for players to pick and choose
-* Real time answer feedback AI
+* Real time answer feedback UI
 * Ability to save score on community scoreboard with additional implentation of React routing (and also Firebase, of course)
 * Scoreboard score sorting (alphabetical, highest score, most recent, etc)
 * Responsive down to 320px (mobile friendly)
