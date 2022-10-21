@@ -1,6 +1,6 @@
 # Trivia Me! : A React.js Solo coding project
 
-This project was created on August 2022 for Juno College's project 3. [View live here.](https://trivia-main.netlify.app/)
+This project was created on August 2022. [View live here.](https://trivia-main.netlify.app/)
 
 ## About
 
