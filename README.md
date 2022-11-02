@@ -1,6 +1,6 @@
 # Trivia Me! : A React.js Solo coding project
 
-This project was created on August 2022. [View live here.](https://trivia-main.netlify.app/)
+Live URL: [View live here.](https://trivia-me.netlify.app/)
 
 ## About
 
